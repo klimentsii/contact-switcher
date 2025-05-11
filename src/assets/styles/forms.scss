@@ -1,0 +1,58 @@
+@use "./variables" as *;
+
+._field {
+  background-color: $form-field-bg-color;
+  border-radius: $radius-primary;
+
+  padding: 16px;
+
+  height: $form-element-height;
+  width: $form-element-width;
+
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $form-field-bg-color--hover;
+  }
+
+  &--error {
+    background-color: $form-field-bg-color--error;
+
+    &:hover {
+      background-color: $form-field-bg-color--error--hover;
+    }
+
+    label {
+      color: $form-field-input-text-color--error !important;
+    }
+  }
+
+  label {
+    color: $primary-color;
+
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    input {
+      color: $form-field-input-text-color;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: "Roboto", sans-serif;
+      width: 100%;
+
+      &::placeholder {
+        color: $primary-color;
+        opacity: 0.7;
+      }
+    }
+  }
+}

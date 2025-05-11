@@ -1,0 +1,13 @@
+@use "../assets/styles/variables" as *;
+
+:host {
+  display: flex;
+  background-color: $bg-color;
+  width: 100vw;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}

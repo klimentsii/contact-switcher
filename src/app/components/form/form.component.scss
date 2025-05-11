@@ -1,0 +1,35 @@
+@use "../../../assets/styles/variables" as *;
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  button {
+    margin-top: 10px;
+    border-radius: $radius-primary;
+
+    height: 60px;
+    width: $form-element-width;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    outline: none;
+    border: none;
+
+    background-color: $form-button-bg-color;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $form-button-bg-color--hover;
+    }
+  }
+}

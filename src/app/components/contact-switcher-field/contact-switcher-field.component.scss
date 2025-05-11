@@ -1,0 +1,103 @@
+@use "../../../assets/styles/variables" as *;
+
+:host {
+  position: relative;
+  color: $primary-color;
+
+  .switcher {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+
+    &--active {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    &__button {
+      transition: all 0.3s;
+      border-radius: $radius-primary;
+
+      padding: 10px;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: $form-field-button-bg-color--hover;
+      }
+
+      img {
+        width: $icon-width;
+        height: $icon-height;
+      }
+    }
+  }
+
+  .switcher__menu {
+    position: absolute;
+    right: 0;
+    padding-top: $form-element-height;
+    width: 100%;
+    border-radius: $radius-primary;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    transition: all 0.3s;
+    transform: scaleY(0);
+    top: -100px;
+
+    &--active {
+      transform: scaleY(1);
+      top: 0;
+      box-shadow: 1px 1px 10px #161616;
+    }
+
+    &-item {
+      padding: 10px 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+
+      background-color: $form-field-button-bg-color--hover;
+
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $form-field-button-menu-bg-color--hover;
+      }
+
+      img {
+        width: $icon-width;
+        height: $icon-height;
+
+        margin: 0 10px;
+      }
+
+      &__title {
+        display: flex;
+        align-items: center;
+
+        height: 20px;
+
+        position: relative;
+
+        &-note {
+          position: absolute;
+          right: -20px;
+          top: 2px;
+          font-size: 10px;
+          color: $form-button-bg-color;
+        }
+      }
+    }
+  }
+}

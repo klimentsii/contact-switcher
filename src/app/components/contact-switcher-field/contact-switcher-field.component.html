@@ -1,0 +1,39 @@
+<div
+  class="switcher _field"
+  [ngClass]="{
+    'switcher--active': isSwitcherActive,
+    '_field--error': hasError
+  }"
+>
+  <label
+    >Contact<input
+      type="text"
+      [placeholder]="currentContact.placeholder"
+      [formControl]="inputControl"
+      (blur)="onBlur()"
+  /></label>
+
+  <span class="switcher__button" (click)="isSwitcherActive = !isSwitcherActive">
+    <img [src]="currentContact.iconSrc" [alt]="currentContact.title" />
+  </span>
+</div>
+
+<ul
+  class="switcher__menu"
+  [ngClass]="{ 'switcher__menu--active': isSwitcherActive }"
+>
+  @for (contact of contacts; track $index) {
+  <li class="switcher__menu-item" (click)="selectContact(contact)">
+    <span class="switcher__menu-item__title">{{ contact.title }}</span>
+    <img [src]="contact.iconSrc" [alt]="contact.title" />
+  </li>
+  } @for (contact of additionalContacts; track $index) {
+  <a class="switcher__menu-item" href="https://gumroad.com/" target="_blank">
+    <span class="switcher__menu-item__title"
+      >{{ contact.title }}
+      <span class="switcher__menu-item__title-note">pro</span></span
+    >
+    <img [src]="contact.iconSrc" [alt]="contact.title" />
+  </a>
+  }
+</ul>
